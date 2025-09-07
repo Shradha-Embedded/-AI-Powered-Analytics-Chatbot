@@ -9,7 +9,7 @@ class SQLAgent:
     def __init__(self, schema_info):
         self.llm = ChatOpenAI(
             api_key=os.getenv('OPENAI_API_KEY'),
-            model="gpt-4",
+           model="gpt-3.5-turbo",
             temperature=0
         )
         self.schema_info = schema_info
@@ -63,4 +63,5 @@ class SQLAgent:
             "Show me revenue by region",
             "Top 5 products by sales",
             "Monthly sales trends"
+
         ]
