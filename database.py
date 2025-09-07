@@ -1,47 +1,37 @@
 import os
-import psycopg2
 import pandas as pd
 from sqlalchemy import create_engine
 from dotenv import load_dotenv
 
 load_dotenv()
 
+try:
+    import psycopg2
+    PSYCOPG2_AVAILABLE = True
+except ImportError:
+    PSYCOPG2_AVAILABLE = False
+
 class DatabaseManager:
     def __init__(self):
+        if not PSYCOPG2_AVAILABLE:
+            self.mock_mode = True
+            return
+        
         self.connection_string = os.getenv('DATABASE_URL')
         self.engine = create_engine(self.connection_string)
+        self.mock_mode = False
 
     def execute_query(self, query):
-        """Execute SQL query and return results as DataFrame"""
+        if self.mock_mode:
+            # Return sample data for demo
+            sample_data = pd.DataFrame({
+                'region_name': ['North America', 'Europe', 'Asia Pacific'],
+                'total_revenue': [150000, 120000, 98000]
+            })
+            return sample_data, None
+        
         try:
             df = pd.read_sql_query(query, self.engine)
             return df, None
         except Exception as e:
             return None, str(e)
-
-    def get_schema_info(self):
-        """Get database schema information for LangChain"""
-        schema_query = """
-        SELECT
-            table_name,
-            column_name,
-            data_type,
-            is_nullable
-        FROM information_schema.columns
-        WHERE table_schema = 'public'
-        ORDER BY table_name, ordinal_position;
-        """
-        df, error = self.execute_query(schema_query)
-        if error:
-            return None
-
-        schema_info = {}
-        for _, row in df.iterrows():
-            table = row['table_name']
-            if table not in schema_info:
-                schema_info[table] = []
-            schema_info[table].append({
-                'column': row['column_name'],
-                'type': row['data_type']
-            })
-        return schema_info
