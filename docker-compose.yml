@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: analytics_app
+    restart: unless-stopped
+    ports:
+      - "8501:8501"
+    environment:
+      - DATABASE_URL=postgresql://postgres:postgres@db:5432/analytics_demo
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+      - ./powerbi_exports:/app/powerbi_exports
+
+  db:
+    image: postgres:15
+    container_name: analytics_db
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: analytics_demo
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
