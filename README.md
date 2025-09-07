@@ -126,14 +126,7 @@ Run `database_setup.sql` to create the schema with sample data.
 ### Main Interface
 ![Main Interface](https://via.placeholder.com/800x400?text=AI+Analytics+Chatbot+Interface)
 
-### Query Results with Insights
-![Results](https://via.placeholder.com/800x400?text=Query+Results+and+AI+Insights)
 
-## 🌐 Live Demo
-
-[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-url.streamlit.app)
-
-**Try it live**: [AI Analytics Chatbot Demo](https://your-app-url.streamlit.app)
 
 ## 🔄 API Integration
 
@@ -269,4 +262,5 @@ business-analytics
 **Built with  by [shradha](https://github.com/Shradha-Embedded)**
 
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-analytics-chatbot.svg?style=social&label=Star)](https://github.com/yourusername/ai-analytics-chatbot)
+
 [![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-analytics-chatbot.svg?style=social&label=Fork)](https://github.com/yourusername/ai-analytics-chatbot/fork)
