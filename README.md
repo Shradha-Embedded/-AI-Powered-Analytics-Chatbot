@@ -124,9 +124,9 @@ Run `database_setup.sql` to create the schema with sample data.
 ## 🎨 Screenshots
 
 ### Main Interface
-![Main Interface](https://via.placeholder.com/800x400?text=AI+Analytics+Chatbot+Interface)
-
-
+<img width="1901" height="905" alt="image" src="https://github.com/user-attachments/assets/89d60359-d6f1-4219-94a2-61faa27a58fa" />
+<img width="1913" height="882" alt="image" src="https://github.com/user-attachments/assets/ac154c93-87df-47ff-9f4e-90efbf23a041" />
+<img width="1319" height="473" alt="image" src="https://github.com/user-attachments/assets/d4686a67-b83b-4982-a895-c7edcb9b55c1" />
 
 ## 🔄 API Integration
 
@@ -264,3 +264,4 @@ business-analytics
 [![GitHub stars](https://img.shields.io/github/stars/yourusername/ai-analytics-chatbot.svg?style=social&label=Star)](https://github.com/yourusername/ai-analytics-chatbot)
 
 [![GitHub forks](https://img.shields.io/github/forks/yourusername/ai-analytics-chatbot.svg?style=social&label=Fork)](https://github.com/yourusername/ai-analytics-chatbot/fork)
+
